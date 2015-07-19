@@ -10,6 +10,7 @@ import math
 import re
 import sys
 import os
+from pyvirtualdisplay import Display
 
 try:
     from selenium import webdriver
@@ -570,7 +571,9 @@ class SelScrape(SearchEngineScrape, threading.Thread):
     def run(self):
         """Run the SelScraper."""
 
-        self._set_xvfb_display()
+        display = Display(visible=0, size=(800, 600))
+        display.start()
+        #self._set_xvfb_display()
 
         if not self._get_webdriver():
             raise_or_log('{}: Aborting due to no available selenium webdriver.'.format(self.name),

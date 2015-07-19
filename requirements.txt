@@ -6,3 +6,4 @@ PyMySql
 sqlalchemy
 aiohttp
 # redis
+pyvirtualdisplay
